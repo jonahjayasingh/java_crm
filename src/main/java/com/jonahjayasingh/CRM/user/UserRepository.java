@@ -1,0 +1,16 @@
+package com.jonahjayasingh.CRM.user;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface UserRepository extends JpaRepository<User , Long> {
+    Optional<User> findByEmail(String email);    
+    Optional<User> findByName(String username);
+
+    boolean existsByName(String name);
+
+    boolean existsByEmail(String email); 
+    
+}
