@@ -66,7 +66,11 @@ public class SecurityConfig {
                     .requestMatchers("/api/tickets/**").hasAnyRole("ADMIN", "MANAGER", "SALES", "EMPLOYEE")
                     .requestMatchers("/api/products/**").hasAnyRole("ADMIN", "MANAGER", "SALES", "EMPLOYEE")
                     .requestMatchers("/api/dashboard/**").hasAnyRole("ADMIN", "MANAGER", "SALES", "EMPLOYEE")
-
+                    .requestMatchers(
+            "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/v3/api-docs/**"
+                    ).permitAll()
                     // Fallback requirement for any unmapped endpoints
                     .anyRequest().authenticated()
             )
